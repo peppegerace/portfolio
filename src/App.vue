@@ -2,14 +2,15 @@
 import Header from './components/Header.vue';
 import Hero from './components/Hero.vue';
 import ToTop from './components/partials/ToTop.vue';
-
+import Technologies from './components/Technologies.vue';
 
 export default {
   name: 'App',
   components: {
     Header,
     Hero,
-    ToTop
+    ToTop,
+    Technologies
   }
 }
 </script>
@@ -18,7 +19,7 @@ export default {
   <Header />
   <Hero />
   <ToTop />
-
+  <Technologies />
 </template>
 
 <style lang="scss">
