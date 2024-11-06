@@ -1,8 +1,10 @@
 <script>
 export default {
-  name: 'Projects',
+  name: 'ProjectDetails',
+  props: ['id'], 
   data() {
     return {
+      project: null, 
       projects: [
         {
           title: 'Boolflix',
@@ -63,24 +65,36 @@ export default {
           ]
         }
       ]
-    }
+    };
+  },
+  created() {
+    this.project = this.projects[this.id];
   }
-}
+};
 </script>
 
 <template>
-  <div class="projects">
+  <div class="project-details" v-if="project">
     <div class="container">
-      <h2>I miei progetti</h2>
       <div class="row">
-        <div class="col-12 col-md-6 col-lg-4 custom-col" v-for="(project, index) in projects" :key="index">
-          <div class="project-card">
-            <div class="project-image">
+        <div class="col-lg-6">
+          <div class="details-card">
+            <h2>{{ project.title }}</h2>
+            <div class="detail-image">
               <img :src="project.image" :alt="project.title">
             </div>
-            <div class="project-description">
-              <h4 class="title-card">{{ project.title }}</h4>
-                <router-link :to="{ name: 'project-details', params: { id: index } }" class="custom-btn">Dettagli</router-link>
+            <div class="detail-description">
+              <h4>tecnologie usate:</h4>
+              <ul class="technologies-list d-flex ps-0">
+                <li v-for="(tech, index) in project.technologies" :key="index" class="me-3">
+                  <i :class="tech.icon"></i>
+                </li>
+              </ul>
+              <h4>Descrizione:</h4>
+              <p>{{ project.description }}</p>
+            </div>
+            <div class="detail-link">
+              <a :href="project.github" target="_blank" class="custom-btn">GitHub</a>
             </div>
           </div>
         </div>
@@ -89,32 +103,15 @@ export default {
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @use '../scss/main.scss' as *;
 
-.projects {
-  padding-bottom: 50px;
+.detail-image {
+  width: 250px;
 }
 
-.projects h2 {
-  text-transform: capitalize;
-  font-size: 2rem;
-  margin-bottom: 24px;
-}
-.projects .custom-col {
+.github {
+  background-color: $active-color;
   padding: 20px;
-}
-.project-card {
-  background-color: $secondary-color;
-  padding: 20px;
-  border-radius: 16px;
-  color: $primary-color;
-  .project-image {
-    margin-bottom: 16px;
-  }
-  .title-card {
-    font-weight: bold;
-    margin-bottom: 16px;
-  }
 }
 </style>

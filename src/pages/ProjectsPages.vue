@@ -47,7 +47,7 @@ export default {
             </div>
             <div class="project-description">
               <h4 class="title-card">{{ project.title }}</h4>
-              <a class="custom-btn">dettagli</a>
+              <router-link :to="{ name: 'project-details', params: { id: index } }" class="custom-btn">Dettagli</router-link>
             </div>
           </div>
         </div>
