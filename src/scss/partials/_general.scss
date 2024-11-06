@@ -27,6 +27,32 @@ li a {
   color: $link-color;
 }
 
+a {
+  text-decoration: none;
+}
+
 .title {
   font-size: 3rem;
+}
+
+.custom-btn {
+  background-color: $active-color;
+  // color: $primary-color;
+  color: $secondary-color;
+  padding: 8px 16px;
+  border-radius: 16px;
+  border: 1px solid $primary-color;
+  font-weight: bold;
+  text-transform: capitalize;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.router-link {
+  text-decoration: none;
+  color: $secondary-color;
+}
+
+.active {
+  color: $active-color;
 }

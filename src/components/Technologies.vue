@@ -74,6 +74,10 @@ export default {
 <style lang="scss">
 @use '../scss/main.scss' as *;
 
+.technologies {
+  padding: 0 20px 50px 20px;
+  // background-color: $active-color;
+}
 .technologies h2 {
   font-size: 2rem;
   margin-bottom: 24px;

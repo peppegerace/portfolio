@@ -12,9 +12,15 @@ export default {
           <div class="menu">
             <nav>
               <ul class="d-flex justify-content-center">
-                <li class="me-3">Progetti</li>
-                <li class="me-3">Chi sono</li>
-                <li class="me-3">Contatti</li>
+                <li class="me-3">
+                  <router-link :to="{name: 'home'}" class="router-link">Home</router-link>
+                </li>
+                <li class="me-3">
+                  <router-link :to="{name: 'projects'}" class="router-link">Progetti</router-link>
+                </li>
+                <li class="me-3">
+                  <router-link :to="{name: 'contacts'}" class="router-link">Contatti</router-link>
+                </li>
               </ul>
             </nav>
           </div>
@@ -32,6 +38,5 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  // padding: 20px 0;
 }
 </style>
